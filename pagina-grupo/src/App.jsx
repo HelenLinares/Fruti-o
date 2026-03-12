@@ -1,13 +1,7 @@
-import Hero from "./Componentes/Hero";
+import Cafe from "./cafe.jsx";
+import "./cafe.css";
 
-function App() {
-
-  return (
-    <>
-      <Hero/>
-    </>
-  );
-
+export default function App() {
+  return(
+  <Cafe />)
 }
-
-export default App;
