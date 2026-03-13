@@ -2,35 +2,14 @@
 // Mantiene el Navbar de los compañeros + agrega las páginas de Yesica
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from "./Componentes/Navbar";
-import Footer from "./Componentes/Footer";
-import Historias from "./pages/Historias";
-import NotMilk from "./pages/NotMilk";
-
-// Componente que decide qué mostrar según la ruta
-const Layout = () => {
-  const { pathname } = useLocation();
-  
-  // Historias tiene su propio navbar y footer
-  const isHistorias = pathname === '/historias';
-  // NotMilk no necesita navbar global (tiene su propio header)
-  const isNotMilk = pathname === '/notmilk';
+import MenuPrincipal from "./Componentes/MenuPrincipal";
+import AboutStarbucks from "./Componentes/AboutStarbucks";
 
   return (
     <>
-      {/* Navbar de los compañeros - se oculta en páginas con navbar propio */}
-      {!isHistorias && !isNotMilk && <Navbar />}
-      
-      <Routes>
-        {/* Página principal - aquí pueden agregar más contenido los compañeros */}
-        <Route path="/" element={<Home />} />
-        
-        {/* Páginas de Yesica */}
-        <Route path="/historias" element={<Historias />} />
-        <Route path="/notmilk" element={<NotMilk />} />
-      </Routes>
-      
-      {/* Footer reutilizable - se muestra en todas las páginas excepto Historias */}
-      {!isHistorias && <Footer />}
+      <Navbar />
+      <MenuPrincipal />
+       <AboutStarbucks />
     </>
   );
 };
